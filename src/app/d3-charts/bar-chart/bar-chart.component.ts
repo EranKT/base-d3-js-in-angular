@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class BarChartComponent {
   private svg: any;
-  private margin = 50;
-  private width = 750 - (this.margin * 2);
-  private height = 400 - (this.margin * 2);
-  private chartData = chartMockData;
+  private margin: number = 50;
+  private width: number = 750 - (this.margin * 2);
+  private height: number = 400 - (this.margin * 2);
+  private chartData: any = chartMockData;
 
   private createSvg(): void {
     this.svg = d3.select("figure#bar")
