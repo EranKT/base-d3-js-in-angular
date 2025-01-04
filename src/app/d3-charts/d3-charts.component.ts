@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { TreeChartComponent } from './tree-chart/tree-chart.component';
 
 @Component({
   selector: 'app-d3-charts',
@@ -11,7 +12,8 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
   imports: [
     ScatterChartComponent,
     PieChartComponent,
-    BarChartComponent],
+    BarChartComponent,
+    TreeChartComponent],
   templateUrl: './d3-charts.component.html',
   styleUrl: './d3-charts.component.scss'
 })
@@ -32,6 +34,10 @@ export class D3ChartsComponent {
         break;
       case BarsTypesEnum.scatter:
         routeUrl = 'scatter-chart/';
+        break;
+
+      case BarsTypesEnum.tree:
+        routeUrl = 'tree-chart/';
         break;
 
       default:

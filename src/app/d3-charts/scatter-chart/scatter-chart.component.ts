@@ -82,7 +82,7 @@ export class ScatterChartComponent {
   ngOnInit(): void {
     this.margin = (this.isPreview ? 5 : 50);
     this.width = (this.isPreview ? 230 : 750) - (this.margin * 2);
-    this.height = (this.isPreview ? 240 : 400) - (this.margin * 2);
+    this.height = (this.isPreview ? 200 : 400) - (this.margin * 2);
     this.createSvg();
     this.drawPlot();
   }
