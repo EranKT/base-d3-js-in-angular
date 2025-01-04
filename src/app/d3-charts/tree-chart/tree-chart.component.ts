@@ -77,7 +77,7 @@ export class TreeChartComponent {
 
     this.root = d3.hierarchy(this.chartData, (d) => { return d.children; });
     this.dy = (this.width - this.margin.right - this.margin.left) / (1 + this.root.height);
-
+    console.log({ root: this.root })
     this.tree = d3.tree().nodeSize([this.dx, this.dy]);
 
     this.diagonal = d3.linkHorizontal().x((d: any) => d.y).y((d: any) => d.x);
@@ -97,8 +97,10 @@ export class TreeChartComponent {
     this.root.y0 = 0;
     this.root.descendants().forEach((d: { id: any; _children: any; children: null; depth: any; data: { name: string | any[]; }; }, i: any) => {
       d.id = i;
-      // d._children = d.children;
-      // if (d.depth && d.data.name.length !== 7) d.children = null;
+      if (!this.isPreview) {
+        d._children = d.children;
+        if (d.depth && d.data.name.length !== 7) d.children = null;
+      }
     });
 
     this.update(null, this.root);
