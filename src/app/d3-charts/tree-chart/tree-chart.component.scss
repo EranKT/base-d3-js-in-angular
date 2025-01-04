@@ -5,8 +5,6 @@
 }
 
 .tree-chart-full-size {
-  display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: auto;
+  overflow: auto;
+  height: calc(100vh - 113px);
 }
