@@ -1,0 +1,8 @@
+@if (!isPreview) {
+<button (click)="backToMain()">
+  Back
+</button>
+
+<h2>Tree Chart</h2>
+}
+<figure id="tree" [class]="isPreview ? 'tree-chart-limited-size' : 'tree-chart-full-size'"></figure>

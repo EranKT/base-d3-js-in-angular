@@ -1,0 +1,12 @@
+.tree-chart-limited-size {
+  width: 150px;
+    height: 150px;
+    overflow: auto;
+}
+
+.tree-chart-full-size {
+  display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: auto;
+}
