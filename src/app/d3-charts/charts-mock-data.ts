@@ -19,7 +19,76 @@ export const treeChartMockData: TreeChartDataModel = {
         {
           name: "C1",
           value: 100,
-          children: undefined
+          children: [{
+            name: "A1",
+            value: 100,
+            children: [
+              {
+                name: "B1",
+                value: 100,
+                children: [
+                  {
+                    name: "C1",
+                    value: 100,
+                    children: undefined
+                  },
+                  {
+                    name: "C2",
+                    value: 300,
+                    children: [
+                      {
+                        name: "D1",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "D2",
+                        value: 300,
+                        children: undefined
+                      }
+                    ]
+                  },
+                  {
+                    name: "C3",
+                    value: 200,
+                    children: undefined
+                  }
+                ]
+              },
+              {
+                name: "B2",
+                value: 200,
+                children: [
+                  {
+                    name: "C4",
+                    value: 100,
+                    children: undefined
+                  },
+                  {
+                    name: "C5",
+                    value: 300,
+                    children: undefined
+                  },
+                  {
+                    name: "C6",
+                    value: 200,
+                    children: [
+                      {
+                        name: "D3",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "D4",
+                        value: 300,
+                        children: undefined
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }]
         },
         {
           name: "C2",
@@ -33,7 +102,76 @@ export const treeChartMockData: TreeChartDataModel = {
             {
               name: "D2",
               value: 300,
-              children: undefined
+              children: [{
+                name: "A1",
+                value: 100,
+                children: [
+                  {
+                    name: "B1",
+                    value: 100,
+                    children: [
+                      {
+                        name: "C1",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "C2",
+                        value: 300,
+                        children: [
+                          {
+                            name: "D1",
+                            value: 100,
+                            children: undefined
+                          },
+                          {
+                            name: "D2",
+                            value: 300,
+                            children: undefined
+                          }
+                        ]
+                      },
+                      {
+                        name: "C3",
+                        value: 200,
+                        children: undefined
+                      }
+                    ]
+                  },
+                  {
+                    name: "B2",
+                    value: 200,
+                    children: [
+                      {
+                        name: "C4",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "C5",
+                        value: 300,
+                        children: undefined
+                      },
+                      {
+                        name: "C6",
+                        value: 200,
+                        children: [
+                          {
+                            name: "D3",
+                            value: 100,
+                            children: undefined
+                          },
+                          {
+                            name: "D4",
+                            value: 300,
+                            children: undefined
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }]
             }
           ]
         },
@@ -51,12 +189,150 @@ export const treeChartMockData: TreeChartDataModel = {
         {
           name: "C4",
           value: 100,
-          children: undefined
+          children: [{
+            name: "A1",
+            value: 100,
+            children: [
+              {
+                name: "B1",
+                value: 100,
+                children: [
+                  {
+                    name: "C1",
+                    value: 100,
+                    children: undefined
+                  },
+                  {
+                    name: "C2",
+                    value: 300,
+                    children: [
+                      {
+                        name: "D1",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "D2",
+                        value: 300,
+                        children: undefined
+                      }
+                    ]
+                  },
+                  {
+                    name: "C3",
+                    value: 200,
+                    children: undefined
+                  }
+                ]
+              },
+              {
+                name: "B2",
+                value: 200,
+                children: [
+                  {
+                    name: "C4",
+                    value: 100,
+                    children: undefined
+                  },
+                  {
+                    name: "C5",
+                    value: 300,
+                    children: undefined
+                  },
+                  {
+                    name: "C6",
+                    value: 200,
+                    children: [
+                      {
+                        name: "D3",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "D4",
+                        value: 300,
+                        children: undefined
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }]
         },
         {
           name: "C5",
           value: 300,
-          children: undefined
+          children: [{
+            name: "A1",
+            value: 100,
+            children: [
+              {
+                name: "B1",
+                value: 100,
+                children: [
+                  {
+                    name: "C1",
+                    value: 100,
+                    children: undefined
+                  },
+                  {
+                    name: "C2",
+                    value: 300,
+                    children: [
+                      {
+                        name: "D1",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "D2",
+                        value: 300,
+                        children: undefined
+                      }
+                    ]
+                  },
+                  {
+                    name: "C3",
+                    value: 200,
+                    children: undefined
+                  }
+                ]
+              },
+              {
+                name: "B2",
+                value: 200,
+                children: [
+                  {
+                    name: "C4",
+                    value: 100,
+                    children: undefined
+                  },
+                  {
+                    name: "C5",
+                    value: 300,
+                    children: undefined
+                  },
+                  {
+                    name: "C6",
+                    value: 200,
+                    children: [
+                      {
+                        name: "D3",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "D4",
+                        value: 300,
+                        children: undefined
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }]
         },
         {
           name: "C6",
@@ -65,12 +341,150 @@ export const treeChartMockData: TreeChartDataModel = {
             {
               name: "D3",
               value: 100,
-              children: undefined
+              children: [{
+                name: "A1",
+                value: 100,
+                children: [
+                  {
+                    name: "B1",
+                    value: 100,
+                    children: [
+                      {
+                        name: "C1",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "C2",
+                        value: 300,
+                        children: [
+                          {
+                            name: "D1",
+                            value: 100,
+                            children: undefined
+                          },
+                          {
+                            name: "D2",
+                            value: 300,
+                            children: undefined
+                          }
+                        ]
+                      },
+                      {
+                        name: "C3",
+                        value: 200,
+                        children: undefined
+                      }
+                    ]
+                  },
+                  {
+                    name: "B2",
+                    value: 200,
+                    children: [
+                      {
+                        name: "C4",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "C5",
+                        value: 300,
+                        children: undefined
+                      },
+                      {
+                        name: "C6",
+                        value: 200,
+                        children: [
+                          {
+                            name: "D3",
+                            value: 100,
+                            children: undefined
+                          },
+                          {
+                            name: "D4",
+                            value: 300,
+                            children: undefined
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }]
             },
             {
               name: "D4",
               value: 300,
-              children: undefined
+              children: [{
+                name: "A1",
+                value: 100,
+                children: [
+                  {
+                    name: "B1",
+                    value: 100,
+                    children: [
+                      {
+                        name: "C1",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "C2",
+                        value: 300,
+                        children: [
+                          {
+                            name: "D1",
+                            value: 100,
+                            children: undefined
+                          },
+                          {
+                            name: "D2",
+                            value: 300,
+                            children: undefined
+                          }
+                        ]
+                      },
+                      {
+                        name: "C3",
+                        value: 200,
+                        children: undefined
+                      }
+                    ]
+                  },
+                  {
+                    name: "B2",
+                    value: 200,
+                    children: [
+                      {
+                        name: "C4",
+                        value: 100,
+                        children: undefined
+                      },
+                      {
+                        name: "C5",
+                        value: 300,
+                        children: undefined
+                      },
+                      {
+                        name: "C6",
+                        value: 200,
+                        children: [
+                          {
+                            name: "D3",
+                            value: 100,
+                            children: undefined
+                          },
+                          {
+                            name: "D4",
+                            value: 300,
+                            children: undefined
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }]
             }
           ]
         }

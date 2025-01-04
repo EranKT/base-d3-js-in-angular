@@ -108,17 +108,14 @@ export class TreeChartComponent {
   }
 
   click = (d: any) => {
-    console.log('click', { srcElement: d?.srcElement.__data__ });
     const element = d?.srcElement.__data__;
     if (element && (element?.children?.length > 0 || element?._children?.length > 0)) {
       if (element.children) {
         element._children = element.children;
         element.children = null;
-        console.log(1, { root: this.root, element, dChildren: element?.children, d_Children: element?._children });
       } else {
         element.children = element._children;
         element._children = null;
-        console.log(2, { root: this.root, element, dChildren: element?.children, d_Children: element?._children });
       }
       this.updateChart(element);
     }
@@ -126,7 +123,6 @@ export class TreeChartComponent {
 
   updateChart(source: any) {
     let i = 0;
-    console.log(source);
     this.treeData = this.tree(this.root);
     this.nodes = this.treeData.descendants();
     this.links = this.treeData.descendants().slice(1);
