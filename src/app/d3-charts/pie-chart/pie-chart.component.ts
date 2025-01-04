@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { chartMockData } from '../charts-mock-data';
 import * as d3 from 'd3';
@@ -11,6 +11,7 @@ import * as d3 from 'd3';
   styleUrl: './pie-chart.component.scss'
 })
 export class PieChartComponent {
+  @Input() isPreview: boolean = false;
 
   private chartData = chartMockData;
   private svg: any;
@@ -59,7 +60,7 @@ export class PieChartComponent {
 
     // Add labels
     const labelLocation = d3.arc()
-      .innerRadius(100)
+      .innerRadius(this.isPreview ? 20 : 100)
       .outerRadius(this.radius);
 
     this.svg
@@ -70,12 +71,17 @@ export class PieChartComponent {
       .text((d: any) => d.data.Framework)
       .attr("transform", (d: any) => "translate(" + labelLocation.centroid(d) + ")")
       .style("text-anchor", "middle")
-      .style("font-size", 15);
+      .style("font-size", this.isPreview ? 5 : 15);
   }
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.margin = (this.isPreview ? 5 : 50);
+    this.width = (this.isPreview ? 165 : 750) - (this.margin * 2);
+    this.height = (this.isPreview ? 160 : 600) - (this.margin * 2);
+    this.radius = Math.min(this.width, this.height) / 2 - this.margin;
+
     this.createSvg();
     this.createColors();
     this.drawChart();

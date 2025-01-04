@@ -1,6 +1,8 @@
+@if (!isPreview) {
 <button (click)="backToMain()">
   Back
 </button>
 
 <h2>Scatter Chart</h2>
-<figure id="scatter" class="scatter-chart-limited-size"></figure>
+}
+<figure id="scatter" [class]="isPreview ? 'scatter-chart-limited-size' : ''"></figure>
