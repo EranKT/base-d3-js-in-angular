@@ -53,8 +53,6 @@ export class TreeChartComponent {
 
     this.width = 928;
     this.dx = 10;
-
-    this.createSvg();
     this.renderTreeChart()
   }
 
@@ -63,24 +61,24 @@ export class TreeChartComponent {
 
   }
 
-  createSvg(): void {
+  renderTreeChart() {
+
+
+    this.root = d3.hierarchy(this.chartData, (d) => { return d.children; });
+    this.dy = (this.width - this.margin.right - this.margin.left) / (1 + this.root.height);
+    this.dx = 10;
+
+    this.tree = d3.tree().nodeSize([this.dx, this.dy]);
+
+    this.diagonal = d3.linkHorizontal().x((d: any) => d.y).y((d: any) => d.x);
+
     this.svg = d3.select("figure#tree")
       .append("svg")
       .attr("width", this.width)
       .attr("height", this.dx)
       .attr("viewBox", [-this.margin.left, -this.margin.top, this.width, this.dx])
       .attr("style", "max-width: 100%; height: auto; font: 10px sans-serif; user-select: none;");
-  }
 
-  renderTreeChart() {
-
-
-    this.root = d3.hierarchy(this.chartData, (d) => { return d.children; });
-    this.dy = (this.width - this.margin.right - this.margin.left) / (1 + this.root.height);
-    console.log({ root: this.root })
-    this.tree = d3.tree().nodeSize([this.dx, this.dy]);
-
-    this.diagonal = d3.linkHorizontal().x((d: any) => d.y).y((d: any) => d.x);
 
     this.gLink = this.svg.append("g")
       .attr("fill", "none")
