@@ -7,4 +7,12 @@
 .tree-chart-full-size {
   overflow: auto;
   height: calc(100vh - 113px);
+  width: max-content;
+  margin: 0;
+}
+
+.tree-chart-wrapper {
+  width: 100%;
+  overflow: auto;
+  height: 100%;
 }

@@ -52,7 +52,6 @@ export class TreeChartComponent {
     this.margin = { top: 10, bottom: 10, left: 40, right: 10 };
 
     this.width = 928;
-    this.dx = 10;
     this.renderTreeChart()
   }
 
@@ -65,8 +64,9 @@ export class TreeChartComponent {
 
 
     this.root = d3.hierarchy(this.chartData, (d) => { return d.children; });
-    this.dy = (this.width - this.margin.right - this.margin.left) / (1 + this.root.height);
-    this.dx = 10;
+    this.width = 160 * this.root.height;
+    this.dy = (this.width - this.margin.right - this.margin.left) / ((1 + this.root.height));
+    this.dx = 15;
 
     this.tree = d3.tree().nodeSize([this.dx, this.dy]);
 
