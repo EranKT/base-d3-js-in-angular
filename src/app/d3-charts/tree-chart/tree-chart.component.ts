@@ -54,7 +54,7 @@ export class TreeChartComponent {
       .attr("width", this.width + (this.margin * 2))
       .attr("height", this.height + (this.margin * 2))
       .append("g")
-      .attr("transform", "translate(" + (this.isPreview ? this.margin * 6 : this.margin) + "," + this.margin + ")");
+      .attr("transform", "translate(" + (this.isPreview ? this.margin * 6 : this.margin) + "," + this.height / 1.5 + ")");
   }
 
 
@@ -130,7 +130,7 @@ export class TreeChartComponent {
     this.treeData = this.tree(this.root);
     this.nodes = this.treeData.descendants();
     this.links = this.treeData.descendants().slice(1);
-    this.nodes.forEach((d) => { d.y = d.depth * 180 });
+    this.nodes.forEach((d) => { d.y = d.depth * 100 });
 
     let node = this.svg.selectAll('g.node')
       .data(this.nodes, (d: { id: number; }) => { return d.id || (d.id = ++i); });
