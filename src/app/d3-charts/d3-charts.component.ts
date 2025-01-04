@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 })
 export class D3ChartsComponent {
   BarsTypesKeys = BarsTypesKeys;
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router) { }
 
   chartSelected(type: any) {
     let routeUrl: string = '';
