@@ -6,5 +6,17 @@
   <button (click)="chartSelected(chartType)">
     {{chartType}} chart
   </button>
+
+  @switch (chartType) {
+  @case (BarsTypesEnum.bar) {
+  <app-bar-chart></app-bar-chart>
+  }
+  @case (BarsTypesEnum.pie) {
+  <app-pie-chart></app-pie-chart>
+  }
+  @case (BarsTypesEnum.scatter) {
+  <app-scatter-chart></app-scatter-chart>
+  }
+  }
   }
 </div>

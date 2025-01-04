@@ -5,6 +5,8 @@ import { chartMockData } from '../charts-mock-data';
 
 @Component({
   selector: 'app-scatter-chart',
+  standalone: true,
+  imports: [],
   templateUrl: './scatter-chart.component.html',
   styleUrl: './scatter-chart.component.scss'
 })

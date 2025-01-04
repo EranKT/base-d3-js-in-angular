@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bar-chart',
+  standalone: true,
+  imports: [],
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.scss'
 })

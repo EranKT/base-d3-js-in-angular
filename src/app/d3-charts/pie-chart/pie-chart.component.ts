@@ -5,6 +5,8 @@ import * as d3 from 'd3';
 
 @Component({
   selector: 'app-pie-chart',
+  standalone: true,
+  imports: [],
   templateUrl: './pie-chart.component.html',
   styleUrl: './pie-chart.component.scss'
 })

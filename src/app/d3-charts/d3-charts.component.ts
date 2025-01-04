@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
 import { BarsTypesEnum, BarsTypesKeys } from './charts-models';
 import { Router } from '@angular/router';
+import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @Component({
   selector: 'app-d3-charts',
+  standalone: true,
+  imports: [
+    ScatterChartComponent,
+    PieChartComponent,
+    BarChartComponent],
   templateUrl: './d3-charts.component.html',
   styleUrl: './d3-charts.component.scss'
 })
 export class D3ChartsComponent {
   BarsTypesKeys = BarsTypesKeys;
+  BarsTypesEnum = BarsTypesEnum;
+
   constructor(private router: Router) { }
 
   chartSelected(type: any) {

@@ -9,10 +9,6 @@ import { ScatterChartComponent } from './scatter-chart/scatter-chart.component';
 
 @NgModule({
   declarations: [
-    D3ChartsComponent,
-    ScatterChartComponent,
-    PieChartComponent,
-    BarChartComponent
   ],
   imports: [
     CommonModule
