@@ -1,1 +1,10 @@
-<p>d3-charts works!</p>
+<h3>D3 charts in Angular</h3>
+
+<div class="buttons-container">
+  @for (chartType of BarsTypesKeys; track $index) {
+
+  <button (click)="chartSelected(chartType)">
+    {{chartType}} chart
+  </button>
+  }
+</div>
