@@ -1,0 +1,8 @@
+@if (!isPreview) {
+<button (click)="backToMain()">
+  Back
+</button>
+
+<h2>Pie Chart</h2>
+}
+<figure id="pie" [class]="isPreview ? 'pie-chart-limited-size' : ''"></figure>

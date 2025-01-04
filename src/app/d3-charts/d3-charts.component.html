@@ -1,0 +1,27 @@
+<h3>D3 charts in Angular</h3>
+
+<div class="buttons-container">
+  @for (chartType of BarsTypesKeys; track $index) {
+
+  <div class="button-with-preview-wrapper">
+    <button (click)="chartSelected(chartType)">
+      {{chartType}} chart
+    </button>
+
+    @switch (chartType) {
+    @case (BarsTypesEnum.bar) {
+    <app-bar-chart [isPreview]="true"></app-bar-chart>
+    }
+    @case (BarsTypesEnum.pie) {
+    <app-pie-chart [isPreview]="true"></app-pie-chart>
+    }
+    @case (BarsTypesEnum.scatter) {
+    <app-scatter-chart [isPreview]="true"></app-scatter-chart>
+    }
+    @case (BarsTypesEnum.tree) {
+    <app-tree-chart [isPreview]="true"></app-tree-chart>
+    }
+    }
+  </div>
+  }
+</div>
