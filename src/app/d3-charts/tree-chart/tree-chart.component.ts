@@ -34,6 +34,8 @@ export class TreeChartComponent {
   nodeTextDistanceX: number = 5;
   dx: number;
   dy: number;
+  rectX: number;
+  rectY: number;
   dragStarted: boolean;
   draggingNode: any;
   nodes: any[];
@@ -60,17 +62,39 @@ export class TreeChartComponent {
 
   }
 
+  changeZoom(trent: string) {
+    if (trent === '-') {
+      this.width = this.width * 1.5;
+    } else if (trent === '+') {
+      this.width = this.width / 1.5;
+    } else if (trent === 'reset') {
+      this.width = 160 * this.root.height;
+    }
+    this.update(null, this.root);
+
+  }
+
   renderTreeChart() {
 
 
     this.root = d3.hierarchy(this.chartData, (d) => { return d.children; });
     this.width = 160 * this.root.height;
-    this.dy = (this.width - this.margin.right - this.margin.left) / ((1 + this.root.height));
-    this.dx = 15;
+    this.dx = 80;
+    //size of rect item
+    this.rectX = 200;
+    this.rectY = this.dx / 2;
 
-    this.tree = d3.tree().nodeSize([this.dx, this.dy]);
+    this.dy = (this.width - this.margin.right - this.margin.left) / ((1 + this.root.height)) - this.dx;
 
-    this.diagonal = d3.linkHorizontal().x((d: any) => d.y).y((d: any) => d.x);
+    this.tree = d3.tree().nodeSize([this.dx, this.dy + this.rectX]);
+
+    this.diagonal = d3.linkHorizontal().source((d) => {
+      const dItem: any = d;
+      return [dItem.source.y + this.rectX, dItem.source.x]
+    }).target((d) => {
+      const dItem: any = d;
+      return [dItem.target.y, dItem.target.x]
+    });
 
     this.svg = d3.select("figure#tree")
       .append("svg")
@@ -82,7 +106,7 @@ export class TreeChartComponent {
 
     this.gLink = this.svg.append("g")
       .attr("fill", "none")
-      .attr("stroke", "#555")
+      .attr("stroke", "black")
       .attr("stroke-opacity", 0.4)
       .attr("stroke-width", 1.5);
 
@@ -102,8 +126,6 @@ export class TreeChartComponent {
     });
 
     this.update(null, this.root);
-
-
   }
 
 
@@ -127,7 +149,7 @@ export class TreeChartComponent {
 
     const transition = this.svg.transition()
       .duration(duration)
-      .attr("height", height)
+      .attr("height", height + this.rectX)
       .attr("viewBox", [-this.margin.left, left.x - this.margin.top, this.width, height])
       .tween("resize", window.ResizeObserver ? null : () => () => this.svg.dispatch("toggle"));
 
@@ -143,16 +165,23 @@ export class TreeChartComponent {
       .on("click", (event: any, d: { children: any; _children: any; }) => {
         d.children = d.children ? null : d._children;
         this.update(event, d);
+      })
+      .on("mouseover", (event: any, d: { children: any; _children: any; depth: number }) => {
+        // console.log({ depth: d.depth });
       });
 
-    nodeEnter.append("circle")
-      .attr("r", 2.5)
+    nodeEnter.append("rect")
+      .attr("width", this.rectX)
+      .attr("height", this.rectY)
+      .attr("y", (d: { _children: any; }) => -this.rectY / 2)
+      .attr("rx", 5)
+      .attr("ry", 5)
       .attr("fill", (d: { _children: any; }) => d._children ? "#555" : "#999")
       .attr("stroke-width", 10);
 
     nodeEnter.append("text")
       .attr("dy", "0.31em")
-      .attr("x", (d: { _children: any; }) => d._children ? -6 : 6)
+      .attr("x", (d: { _children: any; }) => d._children ? this.rectX + 15 : this.rectX + 15)
       .attr("text-anchor", (d: { _children: any; }) => d._children ? "end" : "start")
       .text((d: { data: { name: any; }; }) => d.data.name)
       .attr("stroke-linejoin", "round")
@@ -174,8 +203,9 @@ export class TreeChartComponent {
 
     // Update the links…
     const link = this.gLink.selectAll("path")
-      .data(links, (d: { target: { id: any; }; }) => d.target.id);
-
+      .data(links, (d: { target: { id: any; }; }) => {
+        return d.target.id
+      });
     // Enter any new links at the parent's previous position.
     const linkEnter = link.enter().append("path")
       .attr("d", (d: any) => {

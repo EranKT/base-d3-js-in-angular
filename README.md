@@ -1,27 +1,35 @@
 # BaseD3JsInAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+This project is compatible with d3 library version 7.9.0
 
-## Development server
+## Content
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Basic implementation for most common charts used from d3 library.
 
-## Code scaffolding
+![alt text](https://github.com/EranKT/base-d3-js-in-angular/blob/dev-branch/src/app/assets/screenshots/main-page.png?raw=true)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Bar chart
 
-## Build
+Basic bar charts with sample data
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![alt text](https://github.com/EranKT/base-d3-js-in-angular/blob/dev-branch/src/app/assets/screenshots/bar-chart.png?raw=true)
 
-## Running unit tests
+## Pie chart
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Basic pie charts with sample data
 
-## Running end-to-end tests
+![alt text](https://github.com/EranKT/base-d3-js-in-angular/blob/dev-branch/src/app/assets/screenshots/pie-chart.png?raw=true)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Scatter chart
 
-## Further help
+Basic scatter charts with sample data
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+![alt text](https://github.com/EranKT/base-d3-js-in-angular/blob/dev-branch/src/app/assets/screenshots/scatter-chart.png?raw=true)
+
+## Tree diagram
+
+Basic tree diagram with sample data and animation
+
+![alt text](https://github.com/EranKT/base-d3-js-in-angular/blob/dev-branch/src/app/assets/screenshots/tree-diagram.png?raw=true)
+
