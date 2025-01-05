@@ -67,14 +67,20 @@ export class TreeChartComponent {
 
     this.root = d3.hierarchy(this.chartData, (d) => { return d.children; });
     this.width = 160 * this.root.height;
-    this.dx = 50;
-    this.rectX = 100;
+    this.dx = 80;
+    this.rectX = 200;
     this.rectY = this.dx / 2;
     this.dy = (this.width - this.margin.right - this.margin.left) / ((1 + this.root.height)) - this.dx;
 
     this.tree = d3.tree().nodeSize([this.dx, this.dy + this.rectX]);
 
-    this.diagonal = d3.linkHorizontal().x((d: any) => d.y + this.rectX).y((d: any) => d.x);
+    this.diagonal = d3.linkHorizontal().source((d) => {
+      const dItem: any = d;
+      return [dItem.source.y + this.rectX, dItem.source.x]
+    }).target((d) => {
+      const dItem: any = d;
+      return [dItem.target.y, dItem.target.x]
+    });
 
     this.svg = d3.select("figure#tree")
       .append("svg")
@@ -86,7 +92,7 @@ export class TreeChartComponent {
 
     this.gLink = this.svg.append("g")
       .attr("fill", "none")
-      .attr("stroke", "red")
+      .attr("stroke", "black")
       .attr("stroke-opacity", 0.4)
       .attr("stroke-width", 1.5);
 
@@ -106,8 +112,6 @@ export class TreeChartComponent {
     });
 
     this.update(null, this.root);
-
-
   }
 
 
@@ -162,7 +166,7 @@ export class TreeChartComponent {
       .attr("width", this.rectX)
       .attr("height", this.rectY)
       .attr("y", (d: { _children: any; }) => -this.rectY / 2)
-      .attr("x", (d: { _children: any; }) => this.dx)
+      // .attr("x", (d: { _children: any; }) => this.dx)
       .attr("rx", 5)
       .attr("ry", 5)
       .attr("fill", (d: { _children: any; }) => d._children ? "#555" : "#999")
