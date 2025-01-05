@@ -1,11 +1,11 @@
 import { TreeChartDataModel } from "./charts-models";
 
 export const chartMockData = [
-  { "Framework": "Vue", "Stars": "166443", "Released": "2014" },
-  { "Framework": "React", "Stars": "150793", "Released": "2013" },
-  { "Framework": "Angular", "Stars": "62342", "Released": "2016" },
-  { "Framework": "Backbone", "Stars": "27647", "Released": "2010" },
-  { "Framework": "Ember", "Stars": "21471", "Released": "2011" }
+  { "network": "Facebook", "users": "166443", "Released": "2010" },
+  { "network": "Instagram", "users": "150793", "Released": "2013" },
+  { "network": "X", "users": "62342", "Released": "2019" },
+  { "network": "Snapchat", "users": "27647", "Released": "2015" },
+  { "network": "TikTok", "users": "121471", "Released": "2016" }
 ]
 
 export const treeChartMockData: TreeChartDataModel = {

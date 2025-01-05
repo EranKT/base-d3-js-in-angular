@@ -36,13 +36,13 @@ export class PieChartComponent {
 
   private createColors(): void {
     this.colors = d3.scaleOrdinal()
-      .domain(this.chartData.map(d => d.Stars.toString()))
+      .domain(this.chartData.map(d => d.users.toString()))
       .range(["#c7d3ec", "#a5b8db", "#879cc4", "#677795", "#5a6782"]);
   }
 
   private drawChart(): void {
     // Compute the position of each group on the pie:
-    const pie = d3.pie<any>().value((d: any) => Number(d.Stars));
+    const pie = d3.pie<any>().value((d: any) => Number(d.users));
 
     // Build the pie chart
     this.svg
@@ -68,7 +68,7 @@ export class PieChartComponent {
       .data(pie(this.chartData))
       .enter()
       .append('text')
-      .text((d: any) => d.data.Framework)
+      .text((d: any) => d.data.network)
       .attr("transform", (d: any) => "translate(" + labelLocation.centroid(d) + ")")
       .style("text-anchor", "middle")
       .style("font-size", this.isPreview ? 5 : 15);

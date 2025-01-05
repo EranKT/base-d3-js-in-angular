@@ -57,7 +57,7 @@ export class ScatterChartComponent {
         xAxis = xAxis - 1;
         return xAxis;
       })
-      .attr("cy", (d: any) => y(d.Stars))
+      .attr("cy", (d: any) => y(d.users))
       .attr("r", this.isPreview ? 2 : 7)
       .style("opacity", .5)
       .style("fill", "#69b3a2");
@@ -67,13 +67,13 @@ export class ScatterChartComponent {
       .data(this.chartData)
       .enter()
       .append("text")
-      .text((d: any) => d.Framework)
+      .text((d: any) => d.network)
       .attr("x", (d: any) => {
         let xAxis = x(d.Released);
-        xAxis = xAxis + 1;
+        xAxis = xAxis + (this.isPreview ? 0 : 8);
         return xAxis;
       })
-      .attr("y", (d: any) => y(d.Stars))
+      .attr("y", (d: any) => y(d.users))
       .style("font-size", this.isPreview ? 5 : 15);
   }
 
