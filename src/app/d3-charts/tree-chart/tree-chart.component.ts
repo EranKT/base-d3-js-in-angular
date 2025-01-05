@@ -164,9 +164,8 @@ export class TreeChartComponent {
         d.children = d.children ? null : d._children;
         this.update(event, d);
       })
-      .on("mouseover", (event: any, d: { children: any; _children: any; }) => {
-        console.log({ d });
-
+      .on("mouseover", (event: any, d: { children: any; _children: any; depth: number }) => {
+        console.log({ depth: d.depth });
       });
 
     // nodeEnter.append("circle")
