@@ -7,7 +7,7 @@ This project is compatible with d3 library version 7.9.0
 
 Basic implementation for most common charts used from d3 library.
 
-![alt text](https://github.com/EranKT/base-d3-js-in-angular/tree/main/src/app/screenshots/main-page.png?raw=true)
+![alt text](https://github.com/EranKT/base-d3-js-in-angular/tree/dev-branch/src/app/screenshots/main-page.png?raw=true)
 
 ## Bar chart
 
