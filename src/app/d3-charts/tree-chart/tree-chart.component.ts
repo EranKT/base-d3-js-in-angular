@@ -80,8 +80,10 @@ export class TreeChartComponent {
     this.root = d3.hierarchy(this.chartData, (d) => { return d.children; });
     this.width = 160 * this.root.height;
     this.dx = 80;
+    //size of rect item
     this.rectX = 200;
     this.rectY = this.dx / 2;
+
     this.dy = (this.width - this.margin.right - this.margin.left) / ((1 + this.root.height)) - this.dx;
 
     this.tree = d3.tree().nodeSize([this.dx, this.dy + this.rectX]);
@@ -165,19 +167,13 @@ export class TreeChartComponent {
         this.update(event, d);
       })
       .on("mouseover", (event: any, d: { children: any; _children: any; depth: number }) => {
-        console.log({ depth: d.depth });
+        // console.log({ depth: d.depth });
       });
-
-    // nodeEnter.append("circle")
-    // .attr("r", this.dx / 5)
-    // .attr("fill", (d: { _children: any; }) => d._children ? "#555" : "#999")
-    // .attr("stroke-width", 10);
 
     nodeEnter.append("rect")
       .attr("width", this.rectX)
       .attr("height", this.rectY)
       .attr("y", (d: { _children: any; }) => -this.rectY / 2)
-      // .attr("x", (d: { _children: any; }) => this.dx)
       .attr("rx", 5)
       .attr("ry", 5)
       .attr("fill", (d: { _children: any; }) => d._children ? "#555" : "#999")
