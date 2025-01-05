@@ -62,6 +62,18 @@ export class TreeChartComponent {
 
   }
 
+  changeZoom(trent: string) {
+    if (trent === '-') {
+      this.width = this.width * 1.5;
+    } else if (trent === '+') {
+      this.width = this.width / 1.5;
+    } else if (trent === 'reset') {
+      this.width = 160 * this.root.height;
+    }
+    this.update(null, this.root);
+
+  }
+
   renderTreeChart() {
 
 
